@@ -110,20 +110,13 @@ export default function Home() {
                 </span>
               </div>
               <div className="flex gap-3">
-                {mission.status === "Pending"? <button
+                <button
                   onClick={() => updateStatus(mission._id, mission.status)}
-                  disabled={loading}
+                  disabled={mission.status === "Completed"}
                   className="text-sm bg-gray-700 hover:bg-gray-600 px-3 py-1 rounded disabled:opacity-50"
                 >
                   Done
-                </button> : <button
-                  onClick={() => updateStatus(mission._id, mission.status)}
-                  disabled={loading}
-                  className="text-sm bg-gray-700 hover:bg-gray-600 px-3 py-1 rounded disabled:opacity-50"
-                >
-                  Pending
-                </button>}
-                
+                </button>
                 <button
                   onClick={() => deleteMission(mission._id)}
                   disabled={loading}
